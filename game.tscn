@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://c5nlfdfka2y14"]
+
+[ext_resource type="PackedScene" uid="uid://ueis8m5wkpwt" path="res://controllables/truck.tscn" id="1_68wvv"]
+
+[sub_resource type="Gradient" id="Gradient_gps74"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_7cfbq"]
+gradient = SubResource("Gradient_gps74")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oyabr"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(0, -230)
+
+[node name="Ground" type="Sprite2D" parent="."]
+position = Vector2(0, 640)
+rotation = 4.71239
+scale = Vector2(5, 3000)
+texture = SubResource("GradientTexture1D_7cfbq")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="Ground"]
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/RigidBody2D"]
+position = Vector2(28, -4.65661e-10)
+scale = Vector2(10, 0.05)
+shape = SubResource("RectangleShape2D_oyabr")
+
+[node name="Truck" parent="." instance=ExtResource("1_68wvv")]
+position = Vector2(384, -153)
