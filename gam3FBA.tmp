@@ -1,6 +1,5 @@
-[gd_scene load_steps=7 format=3 uid="uid://c5nlfdfka2y14"]
+[gd_scene load_steps=6 format=3 uid="uid://c5nlfdfka2y14"]
 
-[ext_resource type="Script" path="res://gameManager.gd" id="1_8wduo"]
 [ext_resource type="PackedScene" uid="uid://ueis8m5wkpwt" path="res://controllables/truck.tscn" id="1_68wvv"]
 [ext_resource type="PackedScene" uid="uid://cg0i45jqinqxo" path="res://Objects/rigidblock.tscn" id="2_3eevg"]
 
@@ -12,8 +11,6 @@ gradient = SubResource("Gradient_gps74")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oyabr"]
 
 [node name="Game" type="Node2D"]
-script = ExtResource("1_8wduo")
-blockScene = ExtResource("2_3eevg")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(0, -230)
@@ -24,18 +21,20 @@ rotation = 4.71239
 scale = Vector2(5, 3000)
 texture = SubResource("GradientTexture1D_7cfbq")
 
-[node name="GroundBody" type="RigidBody2D" parent="Ground"]
+[node name="RigidBody2D" type="RigidBody2D" parent="Ground"]
 freeze = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/GroundBody"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/RigidBody2D"]
 position = Vector2(28, -4.65661e-10)
 scale = Vector2(10, 0.05)
 shape = SubResource("RectangleShape2D_oyabr")
 
 [node name="Truck" parent="." instance=ExtResource("1_68wvv")]
 position = Vector2(384, -153)
+maxSpeed = null
+acceleration = null
+friction = null
+facingRight = null
 
-[node name="rigidblock" parent="." instance=ExtResource("2_3eevg")]
-position = Vector2(131, -186)
-
-[node name="blockHolder" type="Node2D" parent="."]
+[node name="Node2D" parent="." instance=ExtResource("2_3eevg")]
+position = Vector2(16, -92)
