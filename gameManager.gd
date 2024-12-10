@@ -7,5 +7,7 @@ func _ready():
 
 func createBlock(mousePosition : Vector2):
 	var tempBlock = blockScene.instantiate()
+	tempBlock.setRandomBlockSize()
 	tempBlock.position = mousePosition
 	blockHolder.add_child(tempBlock)
+	
