@@ -11,6 +11,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	inputDirection = Input.get_vector("left", "right", "up", "down")
+	inputDirection = Input.get_vector("left", "right", "up", "down").normalized()
 	
 	
