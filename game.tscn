@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://ueis8m5wkpwt" path="res://controllables/truck.tscn" id="1_68wvv"]
 [ext_resource type="PackedScene" uid="uid://cg0i45jqinqxo" path="res://Objects/rigidblock.tscn" id="2_3eevg"]
 [ext_resource type="Script" path="res://camera_2d.gd" id="3_livs4"]
+[ext_resource type="PackedScene" uid="uid://cx3bdl113182b" path="res://controllables/crane.tscn" id="4_lgpci"]
+
 
 [sub_resource type="Gradient" id="Gradient_gps74"]
 
@@ -40,3 +42,6 @@ position = Vector2(384, -153)
 position = Vector2(131, -186)
 
 [node name="blockHolder" type="Node2D" parent="."]
+
+[node name="Crane" parent="." instance=ExtResource("4_lgpci")]
+position = Vector2(539, -214)

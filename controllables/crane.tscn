@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://cx3bdl113182b"]
+
+[ext_resource type="Texture2D" uid="uid://c6g71p7fbydih" path="res://sprites/claw_open.png" id="1_0bwea"]
+[ext_resource type="Script" path="res://controllables/crane.gd" id="1_5k3ff"]
+[ext_resource type="Texture2D" uid="uid://cjf0nn213vpr2" path="res://sprites/claw_closed.png" id="2_642kp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_opr7t"]
+radius = 11.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l7d45"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_0bwea")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_642kp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5mppb"]
+radius = 12.0
+
+[node name="Crane" type="RigidBody2D"]
+linear_damp = 10.0
+angular_damp = 50.0
+script = ExtResource("1_5k3ff")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -7)
+shape = SubResource("CircleShape2D_opr7t")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -12)
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_l7d45")
+frame_progress = 0.892471
+
+[node name="GrabArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GrabArea"]
+shape = SubResource("CircleShape2D_5mppb")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+node_a = NodePath("..")
+angular_limit_lower = -0.523599
+angular_limit_upper = 0.523599
