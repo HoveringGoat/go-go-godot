@@ -4,6 +4,7 @@ extends RigidBody2D
 @onready var grabArea = $GrabArea
 
 var isBeingControlled : bool = true
+var fixedClawRotation : float = 0
 # Called when the node enters the scene tree for the first time.
 var force = 200
 var maxForce = 50000
@@ -26,6 +27,12 @@ func _physics_process(delta):
 		else:
 			sprite2D.frame = 0
 			release()
+	
+	if pinJoint2D.node_b:
+		var grabbedBody = get_node(pinJoint2D.node_b)
+		if grabbedBody != null:
+			look_at(grabbedBody.position)
+			rotation -= fixedClawRotation
 
 
 func grab():
@@ -35,8 +42,15 @@ func grab():
 		if body is RigidBody2D:
 			if body.name != "GroundBody" and body != self :
 				pinJoint2D.node_b = body.get_path()
+				var rot = rotation_degrees
+				look_at(body.position)
+				rot = rotation_degrees - rot
+				fixedClawRotation = (rot/180 * PI)
+				rotation -= fixedClawRotation
 				return
 	
 func release():
 	# remove any connections
 	pinJoint2D.set_node_b("")
+	fixedClawRotation = 0
+	
