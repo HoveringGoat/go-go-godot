@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dbeatiugwkktt"]
 
-[ext_resource type="PackedScene" uid="uid://djc13iivu84vv" path="res://Objects/beamArm.tscn" id="1_ksamq"]
+[ext_resource type="PackedScene" uid="uid://djc13iivu84vv" path="res://objects/beamArm.tscn" id="1_ksamq"]
 
 [node name="crane" type="Node2D"]
 

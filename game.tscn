@@ -1,11 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://c5nlfdfka2y14"]
+[gd_scene load_steps=9 format=3 uid="uid://c5nlfdfka2y14"]
 
-[ext_resource type="Script" path="res://gameManager.gd" id="1_8wduo"]
+[ext_resource type="Script" path="res://scripts/gameManager.gd" id="1_8wduo"]
 [ext_resource type="PackedScene" uid="uid://ueis8m5wkpwt" path="res://controllables/truck.tscn" id="1_68wvv"]
-[ext_resource type="PackedScene" uid="uid://cg0i45jqinqxo" path="res://Objects/rigidblock.tscn" id="2_3eevg"]
-[ext_resource type="Script" path="res://camera_2d.gd" id="3_livs4"]
+[ext_resource type="PackedScene" uid="uid://cg0i45jqinqxo" path="res://objects/rigidblock.tscn" id="2_3eevg"]
+[ext_resource type="Script" path="res://scripts/camera_2d.gd" id="3_livs4"]
 [ext_resource type="PackedScene" uid="uid://cx3bdl113182b" path="res://controllables/crane.tscn" id="4_lgpci"]
-
 
 [sub_resource type="Gradient" id="Gradient_gps74"]
 
