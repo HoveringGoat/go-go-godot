@@ -8,7 +8,7 @@ func setBlockSize(scalingVector):
 	CollisionShape_2D.scale = scalingVector
 
 func setRandomBlockSize():
-	var randomX = rng.randf_range(.5, 1.0)
-	var randomY = rng.randf_range(.2, .5)
+	var randomX = rng.randf_range(.2, 2.5)
+	var randomY = rng.randf_range(.1, .3)
 	var scalingVector = Vector2(randomX,randomY)
 	setBlockSize(scalingVector)
