@@ -1,11 +1,43 @@
-[gd_scene load_steps=2 format=3 uid="uid://dbeatiugwkktt"]
+[gd_scene load_steps=4 format=3 uid="uid://dbeatiugwkktt"]
 
-[ext_resource type="PackedScene" uid="uid://djc13iivu84vv" path="res://objects/beamArm.tscn" id="1_ksamq"]
+[ext_resource type="PackedScene" uid="uid://djc13iivu84vv" path="res://Objects/beamArm.tscn" id="1_ksamq"]
+[ext_resource type="PackedScene" path="res://controllables/crane.tscn" id="2_62lht"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rsjer"]
 
 [node name="crane" type="Node2D"]
 
-[node name="CraneOrigin" type="Marker2D" parent="."]
+[node name="CraneOrigin" type="RigidBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CraneOrigin"]
+shape = SubResource("RectangleShape2D_rsjer")
+disabled = true
+
+[node name="PinJoint2D" type="PinJoint2D" parent="CraneOrigin"]
+node_a = NodePath("..")
+node_b = NodePath("../BeamArm")
 
 [node name="BeamArm" parent="CraneOrigin" instance=ExtResource("1_ksamq")]
 
+[node name="PinJointRight" parent="CraneOrigin/BeamArm" index="2"]
+node_b = NodePath("../../BeamArm2")
+
+[node name="BeamArm2" parent="CraneOrigin" instance=ExtResource("1_ksamq")]
+position = Vector2(720, 0)
+
+[node name="PinJointRight" parent="CraneOrigin/BeamArm2" index="2"]
+node_a = NodePath("../../BeamArm2")
+node_b = NodePath("../../BeamArm3")
+
+[node name="BeamArm3" parent="CraneOrigin" instance=ExtResource("1_ksamq")]
+position = Vector2(1440, 0)
+
+[node name="PinJointRight" parent="CraneOrigin/BeamArm3" index="2"]
+node_b = NodePath("../../Crane")
+
+[node name="Crane" parent="CraneOrigin" instance=ExtResource("2_62lht")]
+position = Vector2(2160, 0)
+
 [editable path="CraneOrigin/BeamArm"]
+[editable path="CraneOrigin/BeamArm2"]
+[editable path="CraneOrigin/BeamArm3"]

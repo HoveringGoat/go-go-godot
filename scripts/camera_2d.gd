@@ -10,6 +10,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	return
 	var speedPercent = minf(1,abs(truck.linear_velocity.x) / 500)
 	camera2D.position = truck.position
 	var floatZoom = lerp(1.0, 0.7, speedPercent)
