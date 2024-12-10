@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://c5nlfdfka2y14"]
+[gd_scene load_steps=8 format=3 uid="uid://c5nlfdfka2y14"]
 
 [ext_resource type="Script" path="res://scripts/gameManager.gd" id="1_8wduo"]
 [ext_resource type="PackedScene" uid="uid://ueis8m5wkpwt" path="res://controllables/truck.tscn" id="1_68wvv"]
 [ext_resource type="PackedScene" uid="uid://cg0i45jqinqxo" path="res://Objects/rigidblock.tscn" id="2_3eevg"]
 [ext_resource type="Script" path="res://scripts/camera_2d.gd" id="3_livs4"]
-[ext_resource type="PackedScene" uid="uid://dbeatiugwkktt" path="res://Objects/crane.tscn" id="5_jpqjg"]
 
 [sub_resource type="Gradient" id="Gradient_gps74"]
 
@@ -39,17 +38,6 @@ shape = SubResource("RectangleShape2D_oyabr")
 position = Vector2(384, -153)
 
 [node name="rigidblock" parent="." instance=ExtResource("2_3eevg")]
-position = Vector2(131, -186)
+position = Vector2(-163, -149)
 
 [node name="blockHolder" type="Node2D" parent="."]
-
-[node name="crane" parent="." instance=ExtResource("5_jpqjg")]
-position = Vector2(-1321, -32)
-
-[node name="PinJoint2D" parent="crane/CraneOrigin" index="1"]
-node_a = NodePath("../../../Ground/GroundBody")
-
-[editable path="crane"]
-[editable path="crane/CraneOrigin/BeamArm"]
-[editable path="crane/CraneOrigin/BeamArm2"]
-[editable path="crane/CraneOrigin/BeamArm3"]

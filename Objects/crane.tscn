@@ -11,7 +11,6 @@
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CraneOrigin"]
 shape = SubResource("RectangleShape2D_rsjer")
-disabled = true
 
 [node name="PinJoint2D" type="PinJoint2D" parent="CraneOrigin"]
 node_a = NodePath("..")
@@ -20,24 +19,25 @@ node_b = NodePath("../BeamArm")
 [node name="BeamArm" parent="CraneOrigin" instance=ExtResource("1_ksamq")]
 
 [node name="PinJointRight" parent="CraneOrigin/BeamArm" index="2"]
-node_b = NodePath("../../BeamArm2")
+node_b = NodePath("BeamArm2")
 
-[node name="BeamArm2" parent="CraneOrigin" instance=ExtResource("1_ksamq")]
-position = Vector2(720, 0)
+[node name="BeamArm2" parent="CraneOrigin/BeamArm/PinJointRight" index="0" instance=ExtResource("1_ksamq")]
+rotation = 9.71854e-05
+scale = Vector2(1, 1)
 
-[node name="PinJointRight" parent="CraneOrigin/BeamArm2" index="2"]
-node_a = NodePath("../../BeamArm2")
-node_b = NodePath("../../BeamArm3")
+[node name="PinJointRight" parent="CraneOrigin/BeamArm/PinJointRight/BeamArm2" index="2"]
+node_b = NodePath("BeamArm3")
 
-[node name="BeamArm3" parent="CraneOrigin" instance=ExtResource("1_ksamq")]
-position = Vector2(1440, 0)
+[node name="BeamArm3" parent="CraneOrigin/BeamArm/PinJointRight/BeamArm2/PinJointRight" index="0" instance=ExtResource("1_ksamq")]
+scale = Vector2(1, 1)
 
-[node name="PinJointRight" parent="CraneOrigin/BeamArm3" index="2"]
-node_b = NodePath("../../Crane")
+[node name="PinJointRight" parent="CraneOrigin/BeamArm/PinJointRight/BeamArm2/PinJointRight/BeamArm3" index="2"]
+node_b = NodePath("Claw")
 
-[node name="Crane" parent="CraneOrigin" instance=ExtResource("2_62lht")]
-position = Vector2(2160, 0)
+[node name="Claw" parent="CraneOrigin/BeamArm/PinJointRight/BeamArm2/PinJointRight/BeamArm3/PinJointRight" index="0" instance=ExtResource("2_62lht")]
+position = Vector2(0, 39.895)
+metadata/_edit_group_ = true
 
 [editable path="CraneOrigin/BeamArm"]
-[editable path="CraneOrigin/BeamArm2"]
-[editable path="CraneOrigin/BeamArm3"]
+[editable path="CraneOrigin/BeamArm/PinJointRight/BeamArm2"]
+[editable path="CraneOrigin/BeamArm/PinJointRight/BeamArm2/PinJointRight/BeamArm3"]

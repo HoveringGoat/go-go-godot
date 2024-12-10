@@ -7,6 +7,7 @@
 size = Vector2(128, 128)
 
 [node name="rigidblock" type="RigidBody2D" node_paths=PackedStringArray("CollisionShape_2D", "Sprite_2D")]
+continuous_cd = 2
 script = ExtResource("1_lt07u")
 CollisionShape_2D = NodePath("CollisionShape2D")
 Sprite_2D = NodePath("Sprite2D")
