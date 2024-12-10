@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://c5nlfdfka2y14"]
+[gd_scene load_steps=7 format=3 uid="uid://c5nlfdfka2y14"]
 
 [ext_resource type="Script" path="res://gameManager.gd" id="1_8wduo"]
 [ext_resource type="PackedScene" uid="uid://ueis8m5wkpwt" path="res://controllables/truck.tscn" id="1_68wvv"]
 [ext_resource type="PackedScene" uid="uid://cg0i45jqinqxo" path="res://Objects/rigidblock.tscn" id="2_3eevg"]
-[ext_resource type="Script" path="res://camera_2d.gd" id="3_livs4"]
 
 [sub_resource type="Gradient" id="Gradient_gps74"]
 
@@ -17,7 +16,7 @@ script = ExtResource("1_8wduo")
 blockScene = ExtResource("2_3eevg")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-script = ExtResource("3_livs4")
+offset = Vector2(0, -230)
 
 [node name="Ground" type="Sprite2D" parent="."]
 position = Vector2(0, 640)

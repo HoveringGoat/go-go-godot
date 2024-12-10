@@ -1,19 +1,33 @@
-[gd_scene load_steps=4 format=3 uid="uid://ueis8m5wkpwt"]
+[gd_scene load_steps=6 format=3 uid="uid://ueis8m5wkpwt"]
 
 [ext_resource type="Script" path="res://controllables/truck_control.gd" id="1_6v6tq"]
 [ext_resource type="Texture2D" uid="uid://bf787oyu1evmy" path="res://sprites/truck.png" id="1_56e76"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5mn27"]
-size = Vector2(102, 61)
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ud8la"]
+friction = 0.45
 
-[node name="Truck" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5mn27"]
+size = Vector2(102, 16)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ivu3p"]
+radius = 19.0
+height = 110.0
+
+[node name="Truck" type="RigidBody2D"]
+mass = 10.0
+physics_material_override = SubResource("PhysicsMaterial_ud8la")
 script = ExtResource("1_6v6tq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-3, 5.5)
+position = Vector2(0, -10)
 shape = SubResource("RectangleShape2D_5mn27")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_56e76")
 flip_h = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(0, 16)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_ivu3p")
