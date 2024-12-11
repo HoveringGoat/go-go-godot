@@ -5,9 +5,9 @@ extends RigidBody2D
 
 var isBeingControlled : bool = true
 var fixedClawRotation : float = 0
-# Called when the node enters the scene tree for the first time.
 var force = 200
-var maxForce = 50000
+var maxForce = 30000
+
 func _ready():
 	pass # Replace with function body.
 

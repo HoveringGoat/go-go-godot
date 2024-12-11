@@ -6,8 +6,8 @@ func _ready():
 	Signals.spawnBlock.connect(createBlock)
 
 func createBlock(mousePosition : Vector2):
-	var tempBlock = blockScene.instantiate()
-	tempBlock.setRandomBlockSize()
-	tempBlock.position = mousePosition
-	blockHolder.add_child(tempBlock)
+	var block = blockScene.instantiate()
+	block.setRandomBlockSize()
+	block.position = mousePosition
+	blockHolder.add_child(block)
 	

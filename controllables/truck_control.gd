@@ -2,7 +2,7 @@ extends RigidBody2D
 
 
 @export var maxSpeed : float = 500.0
-@export var acceleration : float = 750.0
+@export var acceleration : float = 3000.0
 @export var friction : float = 0.01
 @onready var sprite_2d = $Sprite2D
 @onready var collisionShape2D: CollisionShape2D = $CollisionShape2D
