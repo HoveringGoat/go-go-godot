@@ -1,18 +1,14 @@
-extends CharacterBody2D
+extends RigidBody2D
+@export var CollisionShape_2D: CollisionShape2D
+@export var Sprite_2D: Sprite2D
+var rng = RandomNumberGenerator.new()
 
+func setBlockSize(scalingVector):
+	Sprite_2D.scale = scalingVector
+	CollisionShape_2D.scale = scalingVector
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-func _physics_process(delta):
-	# Add the gravity.
-	if not is_on_floor():
-		velocity.y += 1 * delta
-	#	move_and_collide()
-	move_and_slide()
+func setRandomBlockSize():
+	var randomX = rng.randf_range(.2, 2.5)
+	var randomY = rng.randf_range(.1, .3)
+	var scalingVector = Vector2(randomX,randomY)
+	setBlockSize(scalingVector)

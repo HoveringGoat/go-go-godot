@@ -7,14 +7,17 @@ var isBeingControlled : bool = true
 var fixedClawRotation : float = 0
 var force = 200
 var maxForce = 30000
-
+var naturalAngle :float = 0
 func _ready():
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	var posDiff = InputControl.mousePosition - position
+	var currentRotation = get_rotation_degrees()
+	var lerpedRotation = lerpf(currentRotation, naturalAngle, .02)
+	set_rotation_degrees(lerpedRotation)
+	var posDiff = InputControl.mousePosition - global_position
 	var forceVector = posDiff * force
 	if forceVector.length() > maxForce:
 		forceVector = forceVector.normalized()*maxForce

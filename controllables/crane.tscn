@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://brvpyxqwg2co8"]
+
+[ext_resource type="Script" path="res://controllables/crane.gd" id="1_4xd3a"]
+[ext_resource type="PackedScene" uid="uid://cx3bdl113182b" path="res://controllables/claw.tscn" id="1_ionv3"]
+[ext_resource type="Texture2D" uid="uid://dv7hb3eos3o0y" path="res://sprites/craneArmB.png" id="2_68vjw"]
+[ext_resource type="Texture2D" uid="uid://cqhb8madbofmu" path="res://sprites/craneArmA.png" id="3_630cb"]
+
+[node name="Crane" type="Node2D" node_paths=PackedStringArray("claw")]
+script = ExtResource("1_4xd3a")
+claw = NodePath("claw/ClawAttachPoint")
+
+[node name="claw" parent="." instance=ExtResource("1_ionv3")]
+unique_name_in_owner = true
+position = Vector2(617, -299)
+rotation = 0.96421
+
+[node name="Sprite2D" parent="claw" index="1"]
+position = Vector2(-0.8651, -36.5541)
+offset = Vector2(4.3255, 122.771)
+
+[node name="CraneArmB" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(646, -318)
+rotation = 2.48725
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_68vjw")
+offset = Vector2(-6.14, 152.82)
+metadata/_edit_group_ = true
+
+[node name="ArmBAttachPoint" type="Node2D" parent="CraneArmB"]
+unique_name_in_owner = true
+position = Vector2(0, 297.21)
+
+[node name="CraneArmA" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-187, -67)
+rotation = 0.746711
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_630cb")
+offset = Vector2(0, -270.03)
+
+[node name="ArmAAttachPoint" type="Node2D" parent="CraneArmA"]
+unique_name_in_owner = true
+position = Vector2(0, -550.593)
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[editable path="claw"]
