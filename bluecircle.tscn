@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dk8n6f72uo3ht"]
+
+[sub_resource type="Gradient" id="Gradient_5yipk"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0.0454545, 0.636364)
+colors = PackedColorArray(0, 0, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1syu0"]
+gradient = SubResource("Gradient_5yipk")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0, 1)
+
+[node name="Node2D" type="Sprite2D"]
+scale = Vector2(0.5, 0.5)
+texture = SubResource("GradientTexture2D_1syu0")

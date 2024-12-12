@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ueis8m5wkpwt" path="res://controllables/truck.tscn" id="1_68wvv"]
 [ext_resource type="Script" path="res://scripts/camera_2d.gd" id="3_livs4"]
 [ext_resource type="PackedScene" uid="uid://kbl5kqbacj4r" path="res://objects/block.tscn" id="4_km7q8"]
-[ext_resource type="PackedScene" uid="uid://cx3bdl113182b" path="res://controllables/claw.tscn" id="5_gmegs"]
+[ext_resource type="PackedScene" uid="uid://brvpyxqwg2co8" path="res://controllables/crane.tscn" id="5_cwa8o"]
 
 [sub_resource type="Gradient" id="Gradient_gps74"]
 
@@ -18,6 +18,8 @@ script = ExtResource("1_8wduo")
 blockScene = ExtResource("4_km7q8")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-25, -212)
+zoom = Vector2(0.7, 0.7)
 script = ExtResource("3_livs4")
 
 [node name="Ground" type="Sprite2D" parent="."]
@@ -40,6 +42,7 @@ position = Vector2(511, -143)
 [node name="blockHolder" type="Node2D" parent="."]
 
 [node name="block" parent="." instance=ExtResource("4_km7q8")]
-position = Vector2(-151, -222)
+position = Vector2(-99, -89)
 
-[node name="claw" parent="." instance=ExtResource("5_gmegs")]
+[node name="Crane" parent="." instance=ExtResource("5_cwa8o")]
+position = Vector2(-589, -145)

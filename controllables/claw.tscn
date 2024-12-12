@@ -34,10 +34,12 @@ position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_opr7t")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -12)
+position = Vector2(0, -60)
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_l7d45")
 frame_progress = 0.892471
+offset = Vector2(0, 240)
+metadata/_edit_group_ = true
 
 [node name="GrabArea" type="Area2D" parent="."]
 
@@ -48,3 +50,7 @@ shape = SubResource("CircleShape2D_5mppb")
 node_a = NodePath("..")
 angular_limit_lower = -0.523599
 angular_limit_upper = 0.523599
+
+[node name="ClawAttachPoint" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -36)
